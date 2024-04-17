@@ -6,6 +6,7 @@ import { IoIosLock } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { MdOutlineDateRange } from "react-icons/md";
 import { URL } from "../url.js";
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [user, setUser] = React.useState({
@@ -25,6 +26,8 @@ const Signup = () => {
         });
     };
 
+    const navigate = useNavigate();
+
     const register = async () => {
         const { fullName, username, email, dob, password, rePassword } = user;
         if (!fullName || !username || !email || !dob || !password || !rePassword || password !== rePassword) {
@@ -38,6 +41,8 @@ const Signup = () => {
                 return alert("Registration failed");
             }
             alert("Registered Successfully");
+            navigate("/signin");
+
         } catch (error) {
             console.error('Axios Error:', error);
             alert('Axios Error: ' + error.message);

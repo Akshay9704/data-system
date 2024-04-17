@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import axios from 'axios';
 import UserContext from "../context/userContext.js";
 import { URL } from "../url.js";
+import { useNavigate } from 'react-router-dom';
 
 const Signin = () => {
     const { user, setUser } = useContext(UserContext);
@@ -17,6 +18,8 @@ const Signin = () => {
             [name]: value,
         });
     };
+
+    const navigate = useNavigate();
 
     const login = async (e) => {
         e.preventDefault();
@@ -40,12 +43,12 @@ const Signin = () => {
             alert("Logged in Successfully");
             localStorage.setItem("token", jsonData.data.refreshToken);
             localStorage.setItem("username", jsonData.data.user.fullName);
+            navigate("/table");
         } catch (error) {
             console.error("Error:", error);
             alert("An error occurred while logging in");
         }
     };
-
 
     return (
         <div className='flex justify-center items-center h-[100vh]'>

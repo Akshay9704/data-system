@@ -10,6 +10,7 @@ import Grid from '@mui/material/Grid';
 import { MdAccountCircle, MdCancel } from 'react-icons/md';
 import { IoMdSettings } from "react-icons/io";
 
+
 function createData(no, Name, DateCreated, Role, Status, Action) {
     return { no, Name, DateCreated, Role, Status, Action };
 }
@@ -34,6 +35,9 @@ export default function DataTable() {
                 status === 'Inactive' ? 'rgba(255, 0, 0, 0.2)' :
                     'transparent'
     );
+
+    const user = localStorage.getItem("token");
+    console.log(user);
 
     return (
         <>
