@@ -1,6 +1,6 @@
 # Data System - MERN Stack Application
 
-Welcome to the Foodie Project GitHub repository!
+Welcome to the Data System Project GitHub repository!
 
 ## Instructions to Run the Project
 
