@@ -41,7 +41,7 @@ const Signup = () => {
                 return alert("Registration failed");
             }
             alert("Registered Successfully");
-            navigate("/signin");
+            navigate("/");
 
         } catch (error) {
             console.error('Axios Error:', error);
