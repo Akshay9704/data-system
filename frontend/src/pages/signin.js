@@ -77,6 +77,10 @@ const Signin = () => {
                             <p className='hover:cursor-pointer hover:underline text-textGrey text-xs'>Forgot your Password?</p>
                         </div>
                     </div>
+                    <div className='flex gap-1'>
+                        <p className='text-textGrey text-xs'>Don't have an account?</p>
+                        <p onClick={() => navigate("/signup")} className='hover:cursor-pointer hover:underline text-btnGrey text-xs'>Sign Up</p>
+                    </div>
                     <button onClick={login} className='text-textGrey font-semibold text-md mt-4 bg-btnGrey rounded-md py-2 w-full'>LOGIN</button>
                 </div>
             </div>

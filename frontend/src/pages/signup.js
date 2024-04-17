@@ -35,9 +35,9 @@ const Signup = () => {
         }
 
         try {
-            const response = await axios.post(`${URL}/api/v1/users/register`, user); 
+            const response = await axios.post(`${URL}/api/v1/users/register`, user);
 
-            if (!response.data.success) { 
+            if (!response.data.success) {
                 return alert("Registration failed");
             }
             alert("Registered Successfully");
@@ -86,6 +86,10 @@ const Signup = () => {
                         <IoIosLock className='text-textGrey' />
                         <div className='border h-4 border-textGrey'></div>
                         <input name="rePassword" value={user.rePassword} onChange={handleChange} className='bg-inputGrey outline-none text-textGrey' type='password' placeholder='Re-enter Password' />
+                    </div>
+                    <div className='flex gap-2'>
+                        <p className='text-xs text-textGrey'>Already have an account? </p>
+                        <p onClick={() => navigate("/")} className='text-xs text-textGrey font-bold hover:underline hover:cursor-pointer'>Login here</p>
                     </div>
                     <button onClick={register} type='submit' className='text-textGrey font-semibold text-md mt-4 bg-btnGrey rounded-md py-2 w-full'>Register</button>
                 </div>

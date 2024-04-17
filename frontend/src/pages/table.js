@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { MdAccountCircle, MdCancel } from 'react-icons/md';
 import { IoMdSettings } from "react-icons/io";
+import { useNavigate, Navigate } from 'react-router-dom';
 
 
 function createData(no, Name, DateCreated, Role, Status, Action) {
@@ -24,10 +25,14 @@ const rows = [
 ];
 
 export default function DataTable() {
+
+    const navigate = useNavigate();
+
     const handleLogout = () => {
         localStorage.removeItem("token");
         alert("Logged out successfully");
-      };
+        navigate("/");
+    };
 
     const getStatusColor = (status) => (
         status === 'Active' ? 'rgba(0, 255, 0, 0.2)' :
@@ -37,13 +42,15 @@ export default function DataTable() {
     );
 
     const user = localStorage.getItem("token");
-    console.log(user);
+    if (!user) {
+        return <Navigate to='/' replace />
+    }
 
     return (
         <>
             <div className='flex gap-4 flex-col items-center'>
                 <h1 className='font-bold text-5xl text-center'>WELCOME</h1>
-                <button  onClick={handleLogout} className='border rounded-lg text-xl p-1 px-4'>Logout</button>
+                <button onClick={handleLogout} className='border rounded-lg text-xl p-1 px-4'>Logout</button>
             </div>
             <Grid container justifyContent="center">
                 <Grid item xs={12} sm={10} md={8} lg={6}>
